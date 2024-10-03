@@ -11,7 +11,6 @@ let context = canvas.getContext("2d");
 Signature();
 function Signature() {
 
-context.beginPath();
 context.fillStyle = 'black';
 context.fillRect(50, 50, 300, 300);
 context.fillStyle = 'lightgreen';
