@@ -5,13 +5,29 @@ import * as Utils from "../../scripts/utils.js";
 let canvasWidth = context.canvas.width;
 let canvasHeight = context.canvas.height;
 
+drawNight();
+
+function drawNight() {
+    context.fillStyle = 'black';
+    context.fillRect(0, 0, canvasWidth, canvasHeight);
+    context.stroke;
+    for (let i = 0; i <= 150; i++) {
+        context.fillStyle = 'white';
+        let y = Utils.randomNumber(15, canvasHeight - 15)
+        let x = Utils.randomNumber(15, canvasWidth - 15)
+        let bubbleSize = Utils.randomNumber(5, 15)
+        Utils.fillCircle(x, y, bubbleSize)
+    }
+
+}
+
 
 drawShell();
 
 function drawShell() {
 
     context.lineWidth = 3;
-    context.fillStyle = Utils.hsla(Utils.randomNumber(10, 500), 100, 50, 50);
+    context.fillStyle = Utils.hsl(Utils.randomNumber(10, 500), 100, 50, 50);
     context.strokeRect(canvasWidth / 2 - 150, canvasHeight / 2 - 200, 400, 400);
     context.fillRect(canvasWidth / 2 - 150, canvasHeight / 2 - 200, 400, 400);
     context.strokeRect(canvasWidth / 2 + 50, canvasHeight / 2 - 50, 50, 50);
@@ -25,3 +41,5 @@ function drawShell() {
     context.stroke;
 
 }
+
+
