@@ -55,11 +55,13 @@ function drawSnail() {
     context.fillRect(canvasWidth / 2 + 325, canvasHeight / 2 - 50, 100, 250);
     context.fillRect(canvasWidth / 2 + 340, canvasHeight / 2 - 99, 25, 50);
     context.fillRect(canvasWidth / 2 + 385, canvasHeight / 2 - 99, 25, 50);
-    context.fillRect(canvasWidth / 2 - 200, canvasHeight / 2 + 225, 25, 50);
-    context.fillRect(canvasWidth / 2 - 225, canvasHeight / 2 + 250, 25, 25);
-    context.fill;
+    context.fillRect(canvasWidth / 2 - 199, canvasHeight / 2 + 225, 25, 50);
+    context.fillRect(canvasWidth / 2 - 223, canvasHeight / 2 + 250, 25, 25);
 
     context.fillStyle = Utils.hsl(Utils.randomNumber(10, 500), 100, 50, 50);;
     context.fillRect(canvasWidth / 2 + 343, canvasHeight / 2 - 97, 20, 20);
     context.fillRect(canvasWidth / 2 + 387, canvasHeight / 2 - 97, 20, 20);
+    context.fill;
+
+
 }
