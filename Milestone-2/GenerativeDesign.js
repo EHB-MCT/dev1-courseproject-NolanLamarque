@@ -11,7 +11,8 @@ function drawNight() {
     context.fillStyle = 'black';
     context.fillRect(0, 0, canvasWidth, canvasHeight);
     context.stroke;
-    for (let i = 0; i <= 150; i++) {
+    let numBubbles = 150;
+    for (let i = 0; i <= numBubbles; i++) {
         context.fillStyle = 'white';
         let y = Utils.randomNumber(15, canvasHeight - 15)
         let x = Utils.randomNumber(15, canvasWidth - 15)
@@ -58,7 +59,7 @@ function drawSnail() {
     context.fillRect(canvasWidth / 2 - 199, canvasHeight / 2 + 225, 25, 50);
     context.fillRect(canvasWidth / 2 - 223, canvasHeight / 2 + 250, 25, 25);
 
-    context.fillStyle = Utils.hsl(Utils.randomNumber(10, 500), 100, 50, 50);;
+    context.fillStyle = Utils.hsl(Utils.randomNumber(10, 500), 100, 50, 50);
     context.fillRect(canvasWidth / 2 + 343, canvasHeight / 2 - 97, 20, 20);
     context.fillRect(canvasWidth / 2 + 387, canvasHeight / 2 - 97, 20, 20);
     context.fill;
