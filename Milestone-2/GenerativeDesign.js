@@ -24,24 +24,25 @@ function drawNight() {
 
 
 drawShell();
-
-function drawShell() {
+function drawShell(x1, y1, x2, y2) {
 
     context.lineWidth = 3;
     context.fillStyle = Utils.hsl(Utils.randomNumber(10, 500), 100, 50, 50);
-    context.strokeRect(canvasWidth / 2 - 150, canvasHeight / 2 - 200, 400, 400);
-    context.fillRect(canvasWidth / 2 - 150, canvasHeight / 2 - 200, 400, 400);
-    context.strokeRect(canvasWidth / 2 + 50, canvasHeight / 2 - 50, 50, 50);
-    Utils.drawLine(canvasWidth / 2 + 250, canvasHeight / 2 + 125, canvasWidth / 2 - 75, canvasHeight / 2 + 125);
-    Utils.drawLine(canvasWidth / 2 - 75, canvasHeight / 2 - 125, canvasWidth / 2 - 75, canvasHeight / 2 + 125);
-    Utils.drawLine(canvasWidth / 2 + 175, canvasHeight / 2 - 125, canvasWidth / 2 - 75, canvasHeight / 2 - 125);
-    Utils.drawLine(canvasWidth / 2 + 175, canvasHeight / 2 - 125, canvasWidth / 2 + 175, canvasHeight / 2 + 65);
-    Utils.drawLine(canvasWidth / 2 + 175, canvasHeight / 2 + 65, canvasWidth / 2, canvasHeight / 2 + 65);
-    Utils.drawLine(canvasWidth / 2, canvasHeight / 2 + 65, canvasWidth / 2, canvasHeight / 2 - 50);
-    Utils.drawLine(canvasWidth / 2, canvasHeight / 2 - 50, canvasWidth / 2 + 100, canvasHeight / 2 - 50);
+    context.strokeRect(canvasWidth / 2 - x1 - 100, canvasHeight / 2 - y1 - 150, x2 + 350, y2 + 350);
+    context.fillRect(canvasWidth / 2 - x1 - 100, canvasHeight / 2 - y1 - 150, x2 + 350, y2 +350);
+    context.strokeRect(canvasWidth / 2 + x1, canvasHeight / 2 - y1, x2, y2);
+    Utils.drawLine(canvasWidth / 2 + x1 + 200, canvasHeight / 2 + y1 + 75, canvasWidth / 2 - x2 - 25, canvasHeight / 2 + y2 + 75);
+    Utils.drawLine(canvasWidth / 2 - x1 - 25, canvasHeight / 2 - y1 - 75, canvasWidth / 2 - x2 - 25, canvasHeight / 2 + y2 + 75);
+    Utils.drawLine(canvasWidth / 2 + x1 + 125, canvasHeight / 2 - y1 - 75, canvasWidth / 2 - x2 - 25, canvasHeight / 2 - y2 - 75);
+    Utils.drawLine(canvasWidth / 2 + x1 + 125, canvasHeight / 2 - y1 - 75, canvasWidth / 2 + x2 + 125, canvasHeight / 2 + y2 + 15);
+    Utils.drawLine(canvasWidth / 2 + x1 + 125, canvasHeight / 2 + y1 + 15, canvasWidth / 2 + x2 - 50, canvasHeight / 2 + y2 + 15);
+    Utils.drawLine(canvasWidth / 2 + x1 - 50, canvasHeight / 2 + y1 + 15, canvasWidth / 2 + x2 - 50, canvasHeight / 2 - y2);
+    Utils.drawLine(canvasWidth / 2 + x1 - 50, canvasHeight / 2 - y1, canvasWidth / 2 + x2 + 50, canvasHeight / 2 - y2);
     context.stroke;
 
 }
+
+drawShell(50, 50, 50, 50);
 
 
 drawSnail()
