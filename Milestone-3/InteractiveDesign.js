@@ -16,18 +16,15 @@ context.canvas.addEventListener("mousemove", FollowCursor);
  */
 
 function FollowCursor(eventData) {
-    let frameDelay = 20;
+    let frameDelay = 35;
     frameCount++;
     if (frameCount >= frameDelay) {
     frameCount = 0
-    let x = eventData.pageX;
-    let y = eventData.pageY;
-    
     context.clearRect(0, 0, canvasWidth, canvasHeight); 
     context.fillStyle = "white";
     context.fillRect(0, 0, canvasWidth, canvasHeight);
     drawNight()
-    drawSnail(x, 0, x, canvasHeight);
+    drawSnail();
     drawShell(50, 50, 50, 50);
     Signature();
     }
