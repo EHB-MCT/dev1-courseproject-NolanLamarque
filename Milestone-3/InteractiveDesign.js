@@ -8,11 +8,7 @@ let frameCount = 0;
 let frameDelay = 100;
 
 
-
-
-
 context.canvas.addEventListener("mousemove", FollowCursor);
-
 
 /**
  * 
@@ -20,7 +16,7 @@ context.canvas.addEventListener("mousemove", FollowCursor);
  */
 
 function FollowCursor(eventData) {
-    let frameDelay = 25;
+    let frameDelay = 20;
     frameCount++;
     if (frameCount >= frameDelay) {
     frameCount = 0
@@ -33,6 +29,7 @@ function FollowCursor(eventData) {
     drawNight()
     drawSnail(x, 0, x, canvasHeight);
     drawShell(50, 50, 50, 50);
+    Signature();
     }
     
 }
@@ -51,12 +48,10 @@ function drawNight() {
         let bubbleSize = Utils.randomNumber(5, 25)
         Utils.fillCircle(x, y, bubbleSize)
         }
-    
-
+        
 }
 
 drawPearls();
-
 function drawPearls() {
     context.stroke;
     frameCount++;
@@ -72,7 +67,6 @@ function drawPearls() {
         requestAnimationFrame(drawPearls);
 
 }
-
 
 
 drawShell();
@@ -119,3 +113,20 @@ function drawSnail() {
 
 
 }
+
+
+Signature();
+function Signature() {
+context.fillStyle = 'lightgreen';
+context.fillRect(canvasWidth - 150, canvasHeight - 150, 25, 50);
+context.fillRect(canvasWidth - 175, canvasHeight - 100, 25, 25);
+context.fillRect(canvasWidth - 125, canvasHeight - 100, 25, 25);
+context.fillRect(canvasWidth - 200, canvasHeight - 125, 25, 25);
+context.fillRect(canvasWidth - 100, canvasHeight - 125, 25, 25);
+context.fillRect(canvasWidth - 200, canvasHeight - 75, 25, 50);
+context.fillRect(canvasWidth - 100, canvasHeight - 75, 25, 50);
+
+
+}
+
+
