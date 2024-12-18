@@ -4,6 +4,11 @@ import * as Utils from "../../scripts/utils.js";
 
 let canvasWidth = context.canvas.width;
 let canvasHeight = context.canvas.height;
+let frameCount = 0;
+let frameDelay = 100;
+
+
+
 
 
 context.canvas.addEventListener("mousemove", FollowCursor);
@@ -15,16 +20,20 @@ context.canvas.addEventListener("mousemove", FollowCursor);
  */
 
 function FollowCursor(eventData) {
+    let frameDelay = 25;
+    frameCount++;
+    if (frameCount >= frameDelay) {
+    frameCount = 0
     let x = eventData.pageX;
     let y = eventData.pageY;
-
+    
     context.clearRect(0, 0, canvasWidth, canvasHeight); 
     context.fillStyle = "white";
     context.fillRect(0, 0, canvasWidth, canvasHeight);
     drawNight()
     drawSnail(x, 0, x, canvasHeight);
     drawShell(50, 50, 50, 50);
-
+    }
     
 }
 
@@ -34,16 +43,36 @@ function drawNight() {
     context.fillStyle = 'black';
     context.fillRect(0, 0, canvasWidth, canvasHeight);
     context.stroke;
-    let numBubbles = 15;
+    let numBubbles = 35;
     for (let i = 0; i <= numBubbles; i++) {
         context.fillStyle = 'white';
         let y = Utils.randomNumber(15, canvasHeight - 15)
         let x = Utils.randomNumber(15, canvasWidth - 15)
-        let bubbleSize = Utils.randomNumber(5, 15)
+        let bubbleSize = Utils.randomNumber(5, 25)
         Utils.fillCircle(x, y, bubbleSize)
-    }
+        }
+    
 
 }
+
+drawPearls();
+
+function drawPearls() {
+    context.stroke;
+    frameCount++;
+    if (frameCount >= frameDelay) {
+        frameCount = 0;
+        context.fillStyle = Utils.hsl(Utils.randomNumber(10, 500), 100, 50, 50);
+        let y = Utils.randomNumber(15, canvasHeight - 15)
+        let x = Utils.randomNumber(15, canvasWidth - 15)
+        let bubbleSize = Utils.randomNumber(5, 25)
+        Utils.fillCircle(x, y, bubbleSize)
+        
+    }
+        requestAnimationFrame(drawPearls);
+
+}
+
 
 
 drawShell();
