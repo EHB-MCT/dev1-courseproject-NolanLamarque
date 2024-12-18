@@ -5,13 +5,36 @@ import * as Utils from "../../scripts/utils.js";
 let canvasWidth = context.canvas.width;
 let canvasHeight = context.canvas.height;
 
+
+context.canvas.addEventListener("mousemove", FollowCursor);
+
+
+/**
+ * 
+ * @param {MouseEvent} eventData
+ */
+
+function FollowCursor(eventData) {
+    let x = eventData.pageX;
+    let y = eventData.pageY;
+
+    context.clearRect(0, 0, canvasWidth, canvasHeight); 
+    context.fillStyle = "white";
+    context.fillRect(0, 0, canvasWidth, canvasHeight);
+    drawNight()
+    drawSnail(x, 0, x, canvasHeight);
+    drawShell(50, 50, 50, 50);
+
+    
+}
+
 drawNight();
 
 function drawNight() {
     context.fillStyle = 'black';
     context.fillRect(0, 0, canvasWidth, canvasHeight);
     context.stroke;
-    let numBubbles = 150;
+    let numBubbles = 15;
     for (let i = 0; i <= numBubbles; i++) {
         context.fillStyle = 'white';
         let y = Utils.randomNumber(15, canvasHeight - 15)
